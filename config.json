@@ -1,0 +1,58 @@
+{
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+        {
+            "id": "cb224e86-9d2c-4a8c-a57f-8ba8cb249e3b",
+            "alterId": 59
+          },
+          {
+            "id": "cb224e86-9d2c-4a8c-a57f-8ba8cb249e3b",
+            "alterId": 60
+          },
+          {
+            "id": "cb224e86-9d2c-4a8c-a57f-8ba8cb249e3b",
+            "alterId": 61
+          },
+          {
+            "id": "b8bc068d-705c-4fa5-b7cf-072578aad210",
+            "alterId": 62
+          },
+          {
+            "id": "b8bc068d-705c-4fa5-b7cf-072578aad210",
+            "alterId": 63
+          },
+          {
+            "id": "b84703f3-eccb-4f51-b086-ea7e7eab4f7a",
+            "alterId": 64
+          },
+          {
+            "id": "b84703f3-eccb-4f51-b086-ea7e7eab4f7a",
+            "alterId": 65
+          },
+          {
+            "id": "b84703f3-eccb-4f51-b086-ea7e7eab4f7a",
+            "alterId": 66
+          },
+          {
+            "id": "f9a09a4c-e18e-475a-b205-824d31cf2ca8",
+            "alterId": 67
+          },
+          {
+            "id": "f9a09a4c-e18e-475a-b205-824d31cf2ca8",
+            "alterId": 68
+          }
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
+}
