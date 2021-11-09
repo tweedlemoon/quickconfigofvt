@@ -9,12 +9,12 @@ wget https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-re
 bash install-release.sh
 systemctl start v2ray
 systemctl enable v2ray
+systemctl stop v2ray
 cd /usr/local/etc/v2ray
+rm config.json
+wget https://raw.githubusercontent.com/tweedlemoon/quickconfigofvt/master/config.json
+systemctl start v2ray
 firewall-cmd --zone=public --add-port=443/tcp --permanent
 firewall-cmd --zone=public --add-port=443/udp --permanent
 firewall-cmd --reload
 firewall-cmd --list-all
-
-systemctl stop v2ray
-
-systemctl start v2ray
