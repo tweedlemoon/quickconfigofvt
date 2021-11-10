@@ -14,6 +14,7 @@ cd /usr/local/etc/v2ray
 rm config.json
 wget https://raw.githubusercontent.com/tweedlemoon/quickconfigofvt/master/config.json
 systemctl start v2ray
+cd ~
 firewall-cmd --zone=public --add-port=443/tcp --permanent
 firewall-cmd --zone=public --add-port=443/udp --permanent
 firewall-cmd --reload
