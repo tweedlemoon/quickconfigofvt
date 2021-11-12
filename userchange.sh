@@ -8,3 +8,4 @@ rm -rf config.json
 wget https://raw.githubusercontent.com/tweedlemoon/quickconfigofvt/master/config.json
 systemctl start v2ray
 cd ~
+systemctl status v2ray
