@@ -1,7 +1,6 @@
 #! /bin/bash
 ## author:efly
 ## This is my way to change user
-
 date
 systemctl stop v2ray
 cd /usr/local/etc/v2ray
