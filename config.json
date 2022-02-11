@@ -1,22 +1,198 @@
 {
+  "log": {
+    "access": "/var/log/v2ray/access.log",
+    "error": "/var/log/v2ray/error.log",
+    "loglevel": "warning"
+  },
   "inbounds": [
     {
-      "port": 7070,
+      "port": 443,
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
-            "id": "b7cd9f16-68aa-49a0-8435-06f5a3c8c2eb",
-            "alterId": 64
+            "id": "cb224e86-9d2c-4a8c-a57f-8ba8cb249e3b",
+            "alterId": 61
+          },
+          {
+            "id": "b8bc068d-705c-4fa5-b7cf-072578aad210",
+            "alterId": 63
+          },
+          {
+            "id": "f9a09a4c-e18e-475a-b205-824d31cf2ca8",
+            "alterId": 68
+          },
+          {
+            "id": "73b7b0a4-d362-4ed2-9785-e3b4848b592d",
+            "alterId": 69
+          },
+          {
+            "id": "9e4d31e4-f5ab-4158-bb43-d997cf799a51",
+            "alterId": 70
+          },
+          {
+            "id": "2e9f59c3-c9a3-48ad-896c-2a4ed0f775f2",
+            "alterId": 71
+          },
+          {
+            "id": "08477c08-7261-489b-b474-35a8ac289cf4",
+            "alterId": 72
+          },
+          {
+            "id": "52df3035-57eb-460c-a936-ddb6c4911b43",
+            "alterId": 73
+          },
+          {
+            "id": "a4ea7cad-eeae-4399-a2a7-9b051f4d0bd9",
+            "alterId": 74
+          },
+          {
+            "id": "4c691d93-e082-4e7b-817c-831f102520ff",
+            "alterId": 75
+          },
+          {
+            "id": "cdde457d-5ca2-462c-b3f7-0592207b2ddf",
+            "alterId": 76
+          },
+          {
+            "id": "788d5104-057a-42b6-850f-5d581f432195",
+            "alterId": 77
+          },
+          {
+            "id": "b84703f3-eccb-4f51-b086-ea7e7eab4f7a",
+            "alterId": 80
+          },
+          {
+            "id": "0b00a093-4a47-4098-b3e7-2d741ca91999",
+            "alterId": 79
           }
         ]
+      },
+      "streamSettings": {
+        "network": "tcp"
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    },
+    {
+      "protocol": "shadowsocks",
+      "port": 8081,
+      "settings": {
+        "method": "aes-256-gcm",
+        "password": "980524",
+        "network": "tcp,udp",
+        "level": 1,
+        "ota": false
       }
     }
   ],
   "outbounds": [
     {
       "protocol": "freedom",
-      "settings": {}
+      "settings": {
+        "domainStrategy": "UseIP"
+      },
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    },
+    {
+      "protocol": "mtproto",
+      "settings": {},
+      "tag": "tg-out"
     }
-  ]
+  ],
+  "dns": {
+    "servers": [
+      "https+local://8.8.8.8/dns-query",
+      "8.8.8.8",
+      "1.1.1.1",
+      "localhost"
+    ]
+  },
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
+      {
+        "type": "field",
+        "ip": [
+          "0.0.0.0/8",
+          "10.0.0.0/8",
+          "100.64.0.0/10",
+          "127.0.0.0/8",
+          "169.254.0.0/16",
+          "172.16.0.0/12",
+          "192.0.0.0/24",
+          "192.0.2.0/24",
+          "192.168.0.0/16",
+          "198.18.0.0/15",
+          "198.51.100.0/24",
+          "203.0.113.0/24",
+          "::1/128",
+          "fc00::/7",
+          "fe80::/10"
+        ],
+        "outboundTag": "blocked"
+      },
+      {
+        "type": "field",
+        "inboundTag": [
+          "tg-in"
+        ],
+        "outboundTag": "tg-out"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "domain:epochtimes.com",
+          "domain:epochtimes.com.tw",
+          "domain:epochtimes.fr",
+          "domain:epochtimes.de",
+          "domain:epochtimes.jp",
+          "domain:epochtimes.ru",
+          "domain:epochtimes.co.il",
+          "domain:epochtimes.co.kr",
+          "domain:epochtimes-romania.com",
+          "domain:erabaru.net",
+          "domain:lagranepoca.com",
+          "domain:theepochtimes.com",
+          "domain:ntdtv.com",
+          "domain:ntd.tv",
+          "domain:ntdtv-dc.com",
+          "domain:ntdtv.com.tw",
+          "domain:minghui.org",
+          "domain:renminbao.com",
+          "domain:dafahao.com",
+          "domain:dongtaiwang.com",
+          "domain:falundafa.org",
+          "domain:wujieliulan.com",
+          "domain:ninecommentaries.com",
+          "domain:shenyun.com"
+        ],
+        "outboundTag": "blocked"
+      },
+      {
+        "type": "field",
+        "protocol": [
+          "bittorrent"
+        ],
+        "outboundTag": "blocked"
+      }
+    ]
+  },
+  "transport": {
+    "kcpSettings": {
+      "uplinkCapacity": 100,
+      "downlinkCapacity": 100,
+      "congestion": true
+    }
+  }
 }
