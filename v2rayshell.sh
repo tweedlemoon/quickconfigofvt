@@ -36,3 +36,5 @@ ufw allow 443
 ufw allow 8081
 
 wget -N --no-check-certificate "https://raw.githubusercontent.com/dlxg/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
+
+systemctl status v2ray
