@@ -25,6 +25,7 @@ git clone https://github.com/tweedlemoon/v2ray
 cd v2ray
 chmod +x install.sh
 ./install.sh local
+v2ray reinstall
 
 systemctl stop v2ray
 cd /etc/v2ray
