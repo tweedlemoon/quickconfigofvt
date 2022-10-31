@@ -6,7 +6,9 @@ wget https://raw.githubusercontent.com/tweedlemoon/quickconfigofvt/master/v2rays
 
 bash -x v2rayshell.sh
 
+bash -x xrayshell.sh
 
+其中上方是v2ray，下方是xray和trojan
 
 ## 变更用户
 
